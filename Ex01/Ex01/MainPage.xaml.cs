@@ -1,5 +1,6 @@
 ﻿using Ex01.Models;
 using Ex01.Repositories;
+using Ex01.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +41,22 @@ namespace Ex01
         private async Task LoadDocuments()
         {
             lvwDocuments.ItemsSource = await CodaRepository.GetDocumentsAsync();
+        }
+
+
+
+
+        private void lvwDocuments_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (lvwDocuments.SelectedItem != null)
+            {
+                // er is een document geselecteerd
+                CodaDocument selected = (CodaDocument)lvwDocuments.SelectedItem;
+                // naar een andere pagina
+                Navigation.PushAsync(new CodaDocumentsPage(selected));
+                //selected document deselecteren
+                lvwDocuments.SelectedItem = null;
+            }
         }
 
 

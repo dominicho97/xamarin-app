@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ex01.Views.CodaDocumentsPage">
+    <ContentPage.Content>
+        <Grid>
+
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0" />
+                <RowDefinition />
+                <RowDefinition Height="0" />
+
+            </Grid.RowDefinitions>
+
+
+
+            <ListView x:Name="lvwCodaPages" Grid.Row="1" BackgroundColor="#F47562" RowHeight="65" SeparatorColor="Transparent" ItemSelected="lvwCodaPages_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame BackgroundColor="white" Margin="8" Padding="8,0">
+                                <Grid RowSpacing="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition  />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" VerticalOptions="Center" TextColor="#333333" FontSize="20" />
+                                    <Label Text="{Binding Subtitle}" FontAttributes="Italic" VerticalOptions="Center" TextColor="#333333" FontSize="20"  HorizontalOptions="End"/>
+
+                                    <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+
+                                        <Label Text="{Binding Id}" TextColor="#333333" FontSize="13"  VerticalOptions="Start" />
+                                        <Label Text="{Binding Type}" TextColor="#333333" FontSize="13"  VerticalOptions="Start"  FontAttributes="Bold"/>
+
+
+                                    </StackLayout>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
