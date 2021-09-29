@@ -80,5 +80,43 @@ namespace Ex01.Repositories
 
         }
 
+
+
+        //2: GET list of Pages from 1 Document
+        public static async Task<List<CodaPage>> GetPagesAsync(String documentId)
+        {
+            using (HttpClient client = await GetClient())
+            {
+                //https://coda.io/apis/v1/docs/{docId}/pages
+
+                String url = _BASEURL + $"/docs/{documentId}/pages";
+                string json = await client.GetStringAsync(url);
+
+                try
+                {
+
+                    //json convert to list
+                    if (json != null)
+                    {
+                        //json --> List Pages
+                        var pages = JsonConvert.DeserializeObject<CodaPage>(json);
+                        return pages.CodaPages;
+
+                    }
+                    else
+
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+            }
+
+        }
+
     }
 }
