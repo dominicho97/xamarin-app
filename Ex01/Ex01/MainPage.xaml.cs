@@ -18,6 +18,7 @@ namespace Ex01
             InitializeComponent();
 
             TestModels();
+            LoadDocuments();
         }
 
 
@@ -34,6 +35,11 @@ namespace Ex01
             {
                 Debug.WriteLine("dit is een test", d.Name, d.CreatedAt);
             }
+        }
+
+        private async Task LoadDocuments()
+        {
+            lvwDocuments.ItemsSource = await CodaRepository.GetDocumentsAsync();
         }
     }
 }
