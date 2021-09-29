@@ -41,5 +41,13 @@ namespace Ex01
         {
             lvwDocuments.ItemsSource = await CodaRepository.GetDocumentsAsync();
         }
+
+
+        private async void btnCloseDocument_Clicked(object sender, EventArgs e)
+        {
+            CodaDocument codaDocument = (sender as Button).BindingContext as CodaDocument;
+            await CodaRepository.DeleteDocumentsAsync(codaDocument.Id);
+
+        }
     }
 }

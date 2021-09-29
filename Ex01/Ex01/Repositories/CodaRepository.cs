@@ -81,6 +81,37 @@ namespace Ex01.Repositories
         }
 
 
+        //DELETE   Document
+
+
+        public async static Task DeleteDocumentsAsync(string id)
+        {
+            using (HttpClient client = await GetClient())
+            {
+                //voeg een niewe CodaDocument toe aan de documentId als parameter
+                try
+                {
+                    string url = _BASEURL + $"/docs/" + id;
+
+                    var response = client.DeleteAsync(url).Result;
+
+                    //controle: is het gelukt?
+                    if (response.IsSuccessStatusCode == false)
+                    {
+
+                        throw new Exception("Delete did not succeed");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+
+        }
+
+
 
         //2: GET list of Pages from 1 Document
         public static async Task<List<CodaPage>> GetPagesAsync(String documentId)
