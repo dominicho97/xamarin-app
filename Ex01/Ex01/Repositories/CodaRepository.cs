@@ -149,5 +149,50 @@ namespace Ex01.Repositories
 
         }
 
+
+
+
+
+
+        //Get Categories (list)
+
+        public static async Task<List<Categories>> GetCategoriesAsync()
+        {
+            using (HttpClient client = await GetClient())
+            {
+
+                //https://coda.io/apis/v1/categories
+
+                String url = _BASEURL + "/categories";
+                string json = await client.GetStringAsync(url);
+
+                try
+                {
+
+
+                    //json convert to list
+                    if (json != null)
+                    {
+                        //json --> List Categories
+                        var categories = JsonConvert.DeserializeObject<Categories>(json);
+                        return categories.CodaCategories;
+
+                    }
+                    else
+
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+
+            }
+
+
+        }
+
     }
 }
