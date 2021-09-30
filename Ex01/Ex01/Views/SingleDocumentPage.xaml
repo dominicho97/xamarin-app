@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ex01.Views.SingleDocumentPage">
+    <ContentPage.Content>
+        <Grid VerticalOptions="Start" BackgroundColor="#F47562">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180" />
+                <RowDefinition Height="100" />
+                <RowDefinition />
+                <RowDefinition Height="150" />
+            </Grid.RowDefinitions>
+
+            <Label x:Name="lblDocument" Text="This will be your new document"  HorizontalOptions="Start" TextColor="White" FontSize="Large" Margin="19,4,8,8" Grid.Row="1" />
+            <Grid Margin="8" Padding="8" BackgroundColor="White" Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"   />
+                    <RowDefinition Height="0" />
+
+                </Grid.RowDefinitions>
+
+
+
+
+
+                <Editor x:Name="editName" Keyboard="Text" FontSize="Medium"  HorizontalOptions="Fill"  Grid.Row="3" VerticalOptions="Fill" />
+
+            </Grid>
+            <Grid Grid.Row="3" Margin="8,0,8,8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnCancel" Text="Cancel" Clicked="btnCancel_Clicked" BackgroundColor="#fa1e43"/>
+                <Button x:Name="btnSave" Text="Save" Grid.Column="1"  Clicked="btnSave_Clicked" BackgroundColor="#54f4ac" />
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

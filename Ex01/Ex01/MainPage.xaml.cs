@@ -20,7 +20,23 @@ namespace Ex01
 
             TestModels();
             LoadDocuments();
+
+            TapGestureRecognizer tapGesture = new TapGestureRecognizer();
+            tapGesture.Tapped += TapGesture_Tapped;
+            lblAddDocument.GestureRecognizers.Add(tapGesture);
         }
+
+        private void TapGesture_Tapped(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SingleDocumentPage());
+        }
+
+
+
+        //ADD document /toevoegen document
+
+
+
 
 
 
@@ -66,6 +82,9 @@ namespace Ex01
             await CodaRepository.DeleteDocumentsAsync(codaDocument.Id);
 
         }
+
+
+
 
         private void lvwDocuments_ItemSelected_1(object sender, SelectedItemChangedEventArgs e)
         {
