@@ -81,6 +81,41 @@ namespace Ex01.Repositories
         }
 
 
+        //POST (add) new Document
+
+        public async static Task AddDocumentsAsync(string title)
+        {
+            using (HttpClient client = await GetClient())
+            {
+                //voeg een niewe CodaDocument toe aan de documentId als parameter
+                try
+                {
+                    string url = _BASEURL + $"/docs";
+
+                    //stap2 document moet meegestuurd worden met url
+                    //document --> json
+                    var postCodaDocument = new PostCodaDocument { Title = title, TimeZone = "Europe/Brussels" };
+
+                    string json = JsonConvert.SerializeObject(postCodaDocument);
+                    HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await client.PostAsync(url, content);
+
+                    //controle: is het gelukt?
+                    if (response.IsSuccessStatusCode == false)
+                    {
+
+                        throw new Exception("Toevoegen van document niet geslaagd");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+
+        }
+
+
         //DELETE   Document
 
 
