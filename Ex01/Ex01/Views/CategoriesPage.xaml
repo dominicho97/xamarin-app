@@ -3,10 +3,45 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Ex01.Views.CategoriesPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid RowSpacing="0">
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0" />
+                <RowDefinition />
+
+            </Grid.RowDefinitions>
+
+
+            <Grid Grid.Row="1">
+                <Frame Padding="0" BackgroundColor="Black">
+                    <Image Opacity ="0.8" Source="https://miro.medium.com/max/2000/1*E3WLLJIvRrhAPAW-8m54TQ.png"  Aspect="AspectFill"></Image>
+                </Frame>
+                <StackLayout VerticalOptions="EndAndExpand" Margin="15,15,15,65">
+                    <Label Text="Different types of categories." TextColor="#FFFFFF" FontSize="25" Margin="15" FontAttributes="None" />
+                    <Label Text="All in one document." TextColor="#FFFFFF" FontSize="25" Margin="15" FontAttributes="None" />
+                </StackLayout>
+            </Grid>
+
+
+
+            <Grid Grid.Row="2">
+                <ListView x:Name="lvwCategories" RowHeight="50" SeparatorColor="Transparent">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BackgroundColor="#54f46a" Margin="8" Padding="8,0">
+                                    <Grid>
+                                        <Label Text="{Binding Name}" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" />
+
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+            </Grid>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
