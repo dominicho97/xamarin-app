@@ -1,4 +1,5 @@
 ﻿using Ex01.Models;
+using Ex01.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,35 @@ namespace Ex01.Views
         public CodaDetailsPage(CodaDocument codaDocument, CodaPage codaPage)
         {
             InitializeComponent();
+
+            //info bewaren
+
+            MyDocument = codaDocument;
+            MyPage = codaPage;
+
+            loadPage();
         }
+
+        private async void loadPage()
+        {
+            //geselecteerde pagina laden
+            CodaPageSingle singlePage = await CodaRepository.GetCodaPageByIdAsync(MyDocument.Id, MyPage.Id);
+
+            //weergeven in XAML
+            PageName.Text = string.Concat("Name: ", singlePage.Name);
+            PageSubtitle.Text = string.Concat("Subtitle: ", singlePage.Subtitle);
+
+
+            //updaten
+            singlePage.Name = "Updated Name";
+
+            //PutCodaPage updatedPage = await CodaRepository.UpdatePagesAsync(singlePage,MyDocument.Id,MyPage.Id);
+
+
+
+
+
+        }
+
     }
 }
