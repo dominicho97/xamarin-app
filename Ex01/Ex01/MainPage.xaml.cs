@@ -66,5 +66,10 @@ namespace Ex01
             await CodaRepository.DeleteDocumentsAsync(codaDocument.Id);
 
         }
+
+        private void lvwDocuments_ItemSelected_1(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
     }
 }

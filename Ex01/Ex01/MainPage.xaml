@@ -22,7 +22,7 @@
 
                     
 
-                    <ListView x:Name="lvwDocuments" Grid.Row="1" BackgroundColor="#F47562" RowHeight="65" SeparatorColor="Transparent"  >
+                    <ListView x:Name="lvwDocuments" Grid.Row="1" BackgroundColor="#F47562" RowHeight="65" SeparatorColor="Transparent" ItemSelected="lvwDocuments_ItemSelected" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
