@@ -28,6 +28,12 @@ namespace Ex01.Views
             TapGestureRecognizer tapGestureRecognizer1 = new TapGestureRecognizer();
             tapGestureRecognizer1.Tapped += TapGestureRecognizer1_Tapped;
             frmCategories.GestureRecognizers.Add(tapGestureRecognizer1);
+
+            TapGestureRecognizer tapGestureRecognizer2 = new TapGestureRecognizer();
+            tapGestureRecognizer2.Tapped += TapGestureRecognizer1_Tapped;
+            frmAccount.GestureRecognizers.Add(tapGestureRecognizer1);
+
+
         }
 
         private void TapGestureRecognizer1_Tapped(object sender, EventArgs e)
