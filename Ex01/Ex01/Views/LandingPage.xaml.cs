@@ -15,6 +15,20 @@ namespace Ex01.Views
         public LandingPage()
         {
             InitializeComponent();
+
+
+            //Gestures to  frames for navigation
+
+            //Navigation to documents
+
+            TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
+            tapGestureRecognizer.Tapped += TapGestureRecognizer_Tapped;
+            frmMainPage.GestureRecognizers.Add(tapGestureRecognizer);
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }
