@@ -24,6 +24,15 @@ namespace Ex01.Views
             TapGestureRecognizer tapGestureRecognizer = new TapGestureRecognizer();
             tapGestureRecognizer.Tapped += TapGestureRecognizer_Tapped;
             frmMainPage.GestureRecognizers.Add(tapGestureRecognizer);
+
+            TapGestureRecognizer tapGestureRecognizer1 = new TapGestureRecognizer();
+            tapGestureRecognizer1.Tapped += TapGestureRecognizer1_Tapped;
+            frmCategories.GestureRecognizers.Add(tapGestureRecognizer1);
+        }
+
+        private void TapGestureRecognizer1_Tapped(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
